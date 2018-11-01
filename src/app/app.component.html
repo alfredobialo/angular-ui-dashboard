@@ -1,0 +1,68 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}! with Angular {{appVersion}}
+  </h1>
+  <img width="80" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<div class="d-flex justify-content-center flex-column p-5">
+ <p>Building Custom Application Widgets using ng-bootstrap Module for Angular {{appVersion}}</p>
+  <modal-trigger-button [title]="'Open Custom Dialog'"></modal-trigger-button>
+  <div class="p-3">
+    Ng Select Demo <br>
+    <ng-select >
+
+    </ng-select>
+
+    <br>
+    Prime Ng Button
+    <br class="p-4">
+    <button pButton label="Hello World new" class="btn-success"></button>
+    <p-button label="Click Me"></p-button>
+    <p-tabView >
+      <p-tabPanel [header]="'Message'" [closable]="true" >
+        <div class="p-3">
+          <p>Hello World</p>
+        </div>
+
+      </p-tabPanel>
+      <p-tabPanel header="Chats">
+        <div>
+          Employee
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Open Dialog">
+        <div>
+         <modal-trigger-button></modal-trigger-button>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Timer Component">
+        <div>
+        Timer Component
+          <br>
+          <simple-timer-component></simple-timer-component>
+        </div>
+      </p-tabPanel>
+      <p-tabPanel header="Chats">
+        <div>
+          Another Tab
+        </div>
+      </p-tabPanel>
+    </p-tabView>
+
+  </div>
+
+  <div class="p-2 mt-2">
+    <tabs>
+
+    </tabs>
+  </div>
+
+</div>
+
+<div class="p-3">
+
+  <factorial-ui>
+
+  </factorial-ui>
+</div>
