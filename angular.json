@@ -126,6 +126,41 @@
           }
         }
       }
+    },
+    "aaccounting-api": {
+      "root": "projects/aaccounting-api",
+      "sourceRoot": "projects/aaccounting-api/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/aaccounting-api/tsconfig.lib.json",
+            "project": "projects/aaccounting-api/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/aaccounting-api/src/test.ts",
+            "tsConfig": "projects/aaccounting-api/tsconfig.spec.json",
+            "karmaConfig": "projects/aaccounting-api/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/aaccounting-api/tsconfig.lib.json",
+              "projects/aaccounting-api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "effectiv-billing"
