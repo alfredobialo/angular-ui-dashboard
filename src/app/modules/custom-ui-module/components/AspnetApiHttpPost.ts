@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 
 @Component({
-  selector: 'aspnet-api-http-post',
+  selector: "ssb-api-http-post",
   template: `
     <div>
       <div class="row">
@@ -14,17 +14,17 @@ import {Component, OnInit} from '@angular/core';
           <div class="bg-warning">
               <p class="m-3">Result From Post</p>
               <pre>
-                
+
               </pre>
           </div>
-          
+
         </div>
       </div>
     </div>
   `
 })
 
-export class AspnetApiHttpPost implements OnInit {
+export class AspnetApiHttpPostComponent implements OnInit {
   constructor() {
   }
 

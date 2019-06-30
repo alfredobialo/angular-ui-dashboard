@@ -1,48 +1,50 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Meta,  Title} from '@angular/platform-browser';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, OnInit, OnDestroy} from "@angular/core";
+import {Meta, Title} from "@angular/platform-browser";
+import {ActivatedRoute, Router} from "@angular/router";
+import {interval, Observable, range} from "rxjs";
+import {createObservableOfSomething} from "../../../rxjs-utils/ObjectTypes";
+import {buffer, bufferCount, bufferToggle, bufferWhen, bufferTime, window, windowTime} from "rxjs/operators";
 
 @Component({
-  selector: 'caas-home-page',
+  selector: "ssb-home-page",
   template: `
     <div>
-      <h1>Home Page</h1>
-      
-      <br>
-      <button class="btn btn-outline-primary" (click)="gotoAbout()">Read more About Us</button>
-      
+      <div class="jumbotron">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="align-content-end">
+            <h1>Home Page!</h1>
+            <p class="lead">Welcome back!</p>
+
+         <!-- <ssb-login (onLoginSuccess)="currentUser= $event"></ssb-login>-->
+        </div>
+        {{currentUser | json}}
+      </div>
+      </div>
     </div>`
 })
 
 export class HomePageComponent implements OnInit, OnDestroy {
 
-  defPageTitle : string;
-  constructor(private title:Title, private meta : Meta, private activatedRoute : ActivatedRoute, private route : Router) {
+  defPageTitle: string;
+  amount = 450000;
+  currentUser: any;
+
+  constructor(private title: Title, private meta: Meta, private activatedRoute: ActivatedRoute, private route: Router) {
   }
 
   ngOnInit() {
     // store default page title
-    this.defPageTitle  = this.title.getTitle();
-    this.activatedRoute.data
-      .subscribe( x =>{
-        this.title.setTitle( x.data.title);
-        this.meta.addTag({name  : "description", content :x.data.description});
-
-        console.log(x);
-      })
+    // Call The Effectiv Sales Order Module
+    /*let salesOrder =  SalesOrder;
+    let result=  salesOrder.getSalesReport({query:"recent sales", pageSize :10});
+    console.log(result);*/
   }
 
   ngOnDestroy(): void {
-    // reset the meta and title properties to there defaults
-    this.title.setTitle(this.defPageTitle);
+
   }
 
-  gotoAbout() {
-    this.route.navigate(["/about", {from:"homePage",data :  "my data"}])
-      .then(x => {
-        console.log(x);
-      },reason => {
-        console.log(reason);
-      });
-  }
+
 }
+
+

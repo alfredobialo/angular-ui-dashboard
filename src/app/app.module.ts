@@ -1,11 +1,9 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AppComponent} from './app.component';
-import {AspnetModule} from './modules/custom-ui-module/CustomUiModules';
-import {RouterModule} from '@angular/router';
-import {baseRoutes} from './modules/routes/BaseRoute';
-import {BaseRouteModule} from './modules/routes/BaseRouteModule';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AppComponent} from "./app.component";
+import {AspnetModule} from "./modules/custom-ui-module/CustomUiModules";
+import {BaseRouteModule} from "./modules/routes/BaseRouteModule";
 
 
 @NgModule({
@@ -16,8 +14,7 @@ import {BaseRouteModule} from './modules/routes/BaseRouteModule';
 
     BrowserModule,
     BrowserAnimationsModule,
-    AspnetModule,BaseRouteModule,
-    RouterModule.forRoot(baseRoutes)
+    AspnetModule, BaseRouteModule
   ],
   providers: [],
   bootstrap: [AppComponent],
