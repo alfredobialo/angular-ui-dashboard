@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {AppMenuBuilder, MENU_ABOUT, MENU_HOME} from "./IAppMenu";
+import {HomePageComponent} from "./pages/front-pages/HomePageComponent";
+import {AboutPageComponent} from "./pages/front-pages/AboutPageComponent";
 
 @Component({
   selector: 'ssb-main-menu',
@@ -50,5 +53,26 @@ export class MainMenusComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // Test the new AppMenu Component
+    const appMenu  :  AppMenuBuilder = new AppMenuBuilder();
+    const newMenu  = appMenu
+      // Create Home Page Menu
+      .startNewMenu("Home Page", MENU_HOME)
+      .setComponent(HomePageComponent)
+      .setPageInfo("Welcome to Wakanow for Small business","Get the best from Wakanow")
+      .setPath(MENU_HOME)
+      .endMenu()
+      // Create About Us Menu
+      .startNewMenu("About Us",MENU_ABOUT)
+      .setPath(MENU_ABOUT)
+      .setComponent(AboutPageComponent)
+      .setPageInfo("About Us", "Learn more about our Products & Services")
+      .endMenu();
+    ;
+    const generatedMenus  = appMenu.build();
+
+
+    console.log("Generated Menu",generatedMenus, "New Menu", newMenu);
   }
 }
