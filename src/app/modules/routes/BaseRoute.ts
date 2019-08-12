@@ -42,6 +42,11 @@ export const baseRoutes: Route[] = [
       .then( m => InventoryModule)*/
   },
   {
+    path : "crm",
+    loadChildren : "../../modules/feature-modules/crm/crm.module#CrmModule"
+  },
+
+  {
     path: "**",
     component: ErrorPage404Component,
     data: {

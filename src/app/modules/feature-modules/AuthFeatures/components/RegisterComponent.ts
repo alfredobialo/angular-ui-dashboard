@@ -3,12 +3,10 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
 
 @Component({
   selector: "ssb-registration",
-  template: `<div>
-    <h1>Registration</h1>
-    <div class="p-3">
-      <p-inputSwitch [inputId]="'001'"></p-inputSwitch>
-      <br>
-      <p-dropdown [itemSize]="10"></p-dropdown>
+  template: `<div class="d-flex flex-column justify-content-center align-items-center">
+    <h3 class="text-primary">Registration</h3>
+    <div class="">
+      
     </div>
   </div>`
 })
