@@ -6,9 +6,10 @@ import {RouterModule} from "@angular/router";
 import {crmRoutes} from "./crm.routes";
 import {CustomerService} from "./services/customer.service";
 import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
+import { CustomerDetailsDialogComponent } from './components/customer-details-dialog/customer-details-dialog.component';
 
 @NgModule({
-  declarations: [CustomerListComponent, CrmDashboardComponent, CustomerDetailComponent],
+  declarations: [CustomerListComponent, CrmDashboardComponent, CustomerDetailComponent, CustomerDetailsDialogComponent],
   imports: [
     SsbSharedModule,
     RouterModule.forChild(crmRoutes)

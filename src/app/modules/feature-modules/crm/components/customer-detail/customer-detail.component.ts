@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {CustomerService} from "../../services/customer.service";
 
+
 @Component({
   selector: 'ssb-customer-detail',
   template: `
@@ -19,10 +20,13 @@ export class CustomerDetailComponent implements OnInit {
   data = null;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private customerService: CustomerService) {
+              private customerService: CustomerService,
+              ) {
   }
 
   ngOnInit() {
+
+
     // we need to get the full Resource data for the selected customer
     // since this is a restful service
     this.activatedRoute.queryParams.subscribe(x => {

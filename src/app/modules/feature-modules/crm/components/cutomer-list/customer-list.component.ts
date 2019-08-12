@@ -7,7 +7,15 @@ import {CrmRouteConstants} from "../../crm.routes";
   selector: 'ssb-customer-list',
   template: `
     <div class="p-2">
-      <table class="table table-hover table-bordered table-light ">
+      <div class="bg-light">
+        <p class="lead">
+          Component Dialog <br>
+          <ssb-customer-details-dialog>
+            <button class="btn btn-lg btn-dark">Open Dialog</button>
+          </ssb-customer-details-dialog>
+        </p>
+      </div>
+      <table class=" p-3 table table-hover table-bordered table-light ">
         <tr>
           <th>S/N</th>
           <th>Id</th>
@@ -18,9 +26,9 @@ import {CrmRouteConstants} from "../../crm.routes";
         <tr *ngFor="let c of data; let index = index ;">
           <td>{{index + 1 }}</td>
           <td>{{c.id}}</td>
-          <td>{{c.firstName}}, {{c.lastName}}</td>
+          <td class="font-weight-bold text-primary">{{c.firstName}}, {{c.lastName}}</td>
           <td>{{c.address}}</td>
-          <td><button class="btn btn-primary" (click)="showDetails(c)">Details</button></td>
+          <td><button class="btn btn-primary btn-sm" (click)="showDetails(c)">Details</button></td>
         </tr>
       </table>
     </div>
