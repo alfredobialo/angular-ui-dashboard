@@ -223,8 +223,8 @@ export class PagerButtonComponent implements OnChanges {
 })
 export class AsomDataPagerComponent implements OnInit, AfterViewInit, OnChanges, DoCheck {
   @Output() onPageClick: EventEmitter<number> = new EventEmitter<number>();
-  @ViewChild('prev') prevButton: PagerButtonComponent;
-  @ViewChild('next') nextButton: PagerButtonComponent;
+  @ViewChild('prev', {static : true}) prevButton: PagerButtonComponent;
+  @ViewChild('next', {static : true}) nextButton: PagerButtonComponent;
   @ViewChildren('pg') buttons: QueryList<PagerButtonComponent>; // this may be redundant
   @Input('use-oval-button') useOvalButton: boolean = false;
   @Input('in-progress') inProgress: boolean = false;
