@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {BaseHttpService} from "../../BaseHttpService";
-import {never, Observable, of} from "rxjs";
+import {Observable, of} from "rxjs";
 import { delay} from "rxjs/operators";
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
 @Injectable()
 export class InventoryService extends BaseHttpService {
 
   private inventoryUrl  = "/inventory";
-  constructor(private http : HttpClient) {
-    super()
+  constructor(http : HttpClient) {
+    super(http)
   }
   getItems() : Observable<any>
   {
@@ -62,17 +62,9 @@ export class InventoryService extends BaseHttpService {
   ]).pipe(delay(2200));
   }
   // This ta
-  executeItemResource(resourceUrl  :string,
-                      httpMethod :  "post" | "get" | "put" | "delete" | "patch" | "head", options? : any) : Observable<any> /*| Promise<any>*/
-  {
-     // we expect the resource url to point to a valid endpoint for retrieving this resource
-    switch (httpMethod) {
-      case "get":
-        return this.http.get(resourceUrl,options);
-      default :
-        return of({id  : "xxxx", description : "not found", name : "Item not found"}).pipe(delay(500))
-    }
 
+  executeItemResource(url: any, options: any) {
+    return this.executeResource(url, options)
   }
 }
 
