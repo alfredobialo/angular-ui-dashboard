@@ -7,9 +7,11 @@ import {crmRoutes} from "./crm.routes";
 import {CustomerService} from "./services/customer.service";
 import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
 import { CustomerDetailsDialogComponent } from './components/customer-details-dialog/customer-details-dialog.component';
+import { CrmNavComponent } from './components/crm-nav/crm-nav.component';
+import { CrmShellComponent } from './components/crm-shell/crm-shell.component';
 
 @NgModule({
-  declarations: [CustomerListComponent, CrmDashboardComponent, CustomerDetailComponent, CustomerDetailsDialogComponent],
+  declarations: [CustomerListComponent, CrmDashboardComponent, CustomerDetailComponent, CustomerDetailsDialogComponent, CrmNavComponent, CrmShellComponent],
   imports: [
     SsbSharedModule,
     RouterModule.forChild(crmRoutes)

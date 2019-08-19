@@ -12,7 +12,7 @@ import {AboutPageComponent} from "./pages/front-pages/AboutPageComponent";
     <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" [routerLink]="['/auth/login']">Sign In</a>
     <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/auth/register">Register</a>
     <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/inventory/dashboard">Inventory Manager</a>
-    <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/crm/dashboard">CRM</a>
+    <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/crm/shell">CRM</a>
     <ng-content select="span"></ng-content>
       
     </div>
