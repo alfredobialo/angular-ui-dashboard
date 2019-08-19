@@ -226,7 +226,7 @@ export class AsomDataPagerComponent implements OnInit, AfterViewInit, OnChanges,
   @ViewChild('prev', {static : true}) prevButton: PagerButtonComponent;
   @ViewChild('next', {static : true}) nextButton: PagerButtonComponent;
   @ViewChildren('pg') buttons: QueryList<PagerButtonComponent>; // this may be redundant
-  @Input('use-oval-button') useOvalButton: boolean = false;
+  @Input('use-oval-button') useOvalButton: boolean = true;
   @Input('in-progress') inProgress: boolean = false;
   @Input('display-summary') displaySummary: boolean = false;
   @Input('show-total-record') showTotalRecord: boolean = true;
