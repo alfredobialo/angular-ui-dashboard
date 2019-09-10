@@ -6,6 +6,7 @@ import {CustomerService} from "../../services/customer.service";
 @Component({
   selector: 'ssb-customer-detail',
   template: `
+    <ng-content></ng-content>
     <div class="p-5">
       <h1>Customer Details</h1>
       <p class="p-5 lead " style="font-family: 'Lucida Console'">

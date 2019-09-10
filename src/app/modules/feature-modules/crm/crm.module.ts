@@ -11,12 +11,14 @@ import { CrmNavComponent } from './components/crm-nav/crm-nav.component';
 import { CrmShellComponent } from './components/crm-shell/crm-shell.component';
 
 @NgModule({
-  declarations: [CustomerListComponent, CrmDashboardComponent, CustomerDetailComponent, CustomerDetailsDialogComponent, CrmNavComponent, CrmShellComponent],
+  declarations: [CustomerListComponent, CrmDashboardComponent, CustomerDetailComponent,
+    CustomerDetailsDialogComponent, CrmNavComponent, CrmShellComponent],
   imports: [
     SsbSharedModule,
     RouterModule.forChild(crmRoutes)
   ],
-  providers: [CustomerService]
+  providers: [CustomerService],
+  entryComponents:[CustomerDetailsDialogComponent, CustomerDetailComponent]
 
 })
 export class CrmModule { }
