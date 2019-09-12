@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ITodoItem} from "../model/ITodoItem";
 
 @Component({
   selector: 'todo-app-container',
@@ -12,7 +13,9 @@ import {Component, OnInit} from '@angular/core';
                   <add-todo (onTodoAdded)="addToTodoList($event)"></add-todo>
               </div>
               <div class="col-sm-7 col-12">
-             
+                    <todo-list (onTodoDone)="todoDone($event)" 
+                               (onTodoRemoved)="todoRemoved($event)"
+                               [todos]="listOfTodos"></todo-list>
               </div>
           </div>
       </div>
@@ -20,6 +23,7 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class TodoAppComponent implements OnInit {
+  listOfTodos: ITodoItem[] = [];
    constructor() {
   }
 
@@ -27,12 +31,19 @@ export class TodoAppComponent implements OnInit {
   }
 
   addToTodoList(todo: string) {
-   /* this.listOfTodos.push(
+    this.listOfTodos.push(
       {
-        todo,
-        done: false
-      });*/
+        title : todo,
+        isDone: false
+      });
   }
 
 
+  todoRemoved(todo  : ITodoItem) {
+    console.log(todo, "Removed" );
+  }
+
+  todoDone(todo : ITodoItem) {
+    console.log(todo, "Done" );
+  }
 }

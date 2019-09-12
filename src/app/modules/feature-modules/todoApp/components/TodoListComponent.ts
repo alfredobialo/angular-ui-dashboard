@@ -1,21 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
+import {ITodoItem} from "../model/ITodoItem";
 
 @Component({
   selector: 'todo-list',
   template: `
       <div class="p-4">
-          <div *ngFor="let todo of listOfTodos" class="row mb-2"
-               [ngClass]="{'todo-done' : todo.done, 'todo-item' : !todo.done}">
+          <div *ngFor="let todo of listOfTodo" class="row mb-2"
+               [ngClass]="{'todo-done' : todo.isDone, 'todo-item' : !todo.isDone}">
               <div class="col-8 p-2">
                   <p class="lead font-weight-bold"
                      (dblclick)="changeTodoItemStatus(todo)"
-                  >{{todo.todo}}</p>
+                  >{{todo.title}}</p>
               </div>
-              <div class="col-sm-3 p-2">
+              <div class="col-sm-4 p-2">
                   <input type="checkbox"
-                         [checked]="todo.done" #checkElem
+                         [checked]="todo.isDone" #checkElem
                          (change)="changeTodoStatus(checkElem,todo)"
-                         class="form-control form-check-input">
+                         class="todo-checkbox">
+                  <button class="btn-danger btn btn-sm" (click)="removeTodo(todo)"><span class="fa fa-trash"></span></button>
               </div>
 
           </div>
@@ -37,21 +39,41 @@ import {Component, OnInit} from '@angular/core';
           color: #26aff6;
 
       }
+    input[type=checkbox].todo-checkbox
+    {
+        padding : 0.99rem;
+        border : solid 1px #555555;
+        
+    }
   `]
 })
 
 export class TodoListComponent implements OnInit {
-  listOfTodos: any[] = [];
+
+  @Input("todos") listOfTodo: ITodoItem[] = [];
+
+  @Output() onTodoRemoved : EventEmitter<ITodoItem> =  new EventEmitter<ITodoItem>();
+  @Output() onTodoDone : EventEmitter<ITodoItem> =  new EventEmitter<ITodoItem>();
   constructor() {
   }
 
   ngOnInit() {
   }
   changeTodoStatus(elem: HTMLInputElement,todo: any) {
-    todo.done  = elem.checked;
+    todo.isDone  = elem.checked;
   }
 
-  changeTodoItemStatus(todo: any) {
-    todo.done  = !todo.done;
+  changeTodoItemStatus(todo: ITodoItem) {
+    todo.isDone  = !todo.isDone;
+  }
+
+  removeTodo(todo: ITodoItem) {
+      const index  = this.listOfTodo.indexOf(todo);
+      if(index > -1)
+      {
+        this.listOfTodo.splice(index,1);
+        this.onTodoRemoved.emit(todo)
+      }
+
   }
 }
