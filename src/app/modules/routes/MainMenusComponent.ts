@@ -8,8 +8,8 @@ import {AboutPageComponent} from "./pages/front-pages/AboutPageComponent";
   template: `<div class="p-3 mb-5 ssb-shadow main-menu d-flex" >
     <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
     <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn " [routerLinkActiveOptions]="{ exact : true }" routerLinkActive="btn-success text-white " routerLink="/">Home Page</a>
-    <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/about">About Page</a>
-    <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" [routerLink]="['/auth/login']">Sign In</a>
+    <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/about">About Page</a><a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" [routerLink]="['/auth/login']">Sign In</a>
+    <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" [routerLink]="['/todo-app/todos']">Todo App</a>
     <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/auth/register">Register</a>
     <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/inventory/dashboard">Inventory Manager</a>
     <a class="pl-3 pr-3 pt-2 pb-2 btn-link btn" routerLinkActive="btn-success text-white" routerLink="/crm/shell">CRM</a>

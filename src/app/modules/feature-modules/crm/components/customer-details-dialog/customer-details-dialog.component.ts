@@ -1,26 +1,28 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog} from "@angular/material";
+import {Component, Inject, OnInit} from '@angular/core';
 import {CustomerDetailComponent} from "../customer-detail/customer-detail.component";
+import {MatDialogRef,MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 @Component({
-  selector: 'ssb-customer-details-dialog',
   templateUrl: './customer-details-dialog.component.html',
   styleUrls: ['./customer-details-dialog.component.css']
 })
 export class CustomerDetailsDialogComponent implements OnInit {
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialogRef: MatDialogRef<CustomerDetailsDialogComponent>, @Inject(MAT_DIALOG_DATA) public data : any) {
   }
 
   ngOnInit() {
-    /*this.dialog.open(CustomerDetailComponent, {
+    this.dialogRef.afterClosed().subscribe(x => console.log(x));
+     // this.dialogRef;
+  }
+
+  closeDialog() {
+    this.dialogRef.close({
       data: {
-        customerInfo: {
-          firstName: "Alfred",
-          lastName: "Obialo"
-        }
-      },
-    });*/
+        message: "Dialog Closed by User",
+        data : this.data
+      }
+    });
   }
 
 }

@@ -45,6 +45,10 @@ export const baseRoutes: Route[] = [
     path : "crm",
     loadChildren : "../../modules/feature-modules/crm/crm.module#CrmModule"
   },
+  {
+    path : "todo-app",
+    loadChildren : "../../modules/feature-modules/todoApp/TodoAppModule#TodoAppModule"
+  },
 
   {
     path: "**",
