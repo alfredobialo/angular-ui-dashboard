@@ -10,10 +10,7 @@ import {CustomerDetailComponent} from "../customer-detail/customer-detail.compon
   template: `
       <div class="p-2">
           <div class="bg-light">
-              <p class="lead">
-                  Component Dialog <br>
-                  <button class="btn btn-lg btn-dark" (click)="showDetailsInDialog({name :'Alfred Obialo',age: 20})">Open Dialog</button>
-              </p>
+              
           </div>
           <table class=" p-3 table table-hover table-bordered table-light ">
               <tr>
