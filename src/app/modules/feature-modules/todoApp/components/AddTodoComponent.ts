@@ -5,7 +5,8 @@
   template: `
     
     <p class="add-todo-title">Add New Todo</p>
-      <form name="frmAddTodo" class="form" role="form" novalidate (ngSubmit)="notifyListeners(valueAdded)">
+      <form name="frmAddTodo" class="form" role="form" novalidate
+            (ngSubmit)="notifyListeners(valueAdded)">
           <div class="row">
               <div class="col-sm-3 col-5">
                   <label for="txtAddTodo" class="lead">Add Todo</label>
