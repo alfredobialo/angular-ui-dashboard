@@ -6,7 +6,8 @@ import {SsbSharedModule} from "../../shared_modules/SharedModules";
 import { ProductDashboardComponent } from "./components/products/product-dashboard/product-dashboard.component";
 import {inventoryRouteDefinition} from "./inventoryRoutes";
 import {RouterModule} from "@angular/router";
-import {InventoryDashboardResolver, InventoryService} from "./inventoryService";
+import {InventoryService} from "./inventoryService";
+import {InventoryDashboardResolver} from "./inventoryDashboardResolver";
 
 @NgModule({
   declarations: [CreateProductComponent, ProductListComponent, EditProductDialogComponent, ProductDashboardComponent],

@@ -11,7 +11,7 @@ import {IPagerSource} from "../../../../../core-ui-modules/ui-components/PagerCo
 })
 export class ProductDashboardComponent implements OnInit {
 
-  inventoryList$ : Observable<any>;
+  inventoryList$ : any;
   loading: boolean  = false;
   productPager: IPagerSource = {currentPage :1 , pageSize : 1, totalPages : 0, totalRecord : 0};
   constructor(private activeRoute : ActivatedRoute, private inventoryService : InventoryService) { }
@@ -19,8 +19,8 @@ export class ProductDashboardComponent implements OnInit {
   ngOnInit() {
     // get product data
     console.log(this.activeRoute.data);
-    this.inventoryList$  = <Observable<any>> this.activeRoute.data;
-    this.inventoryList$.subscribe
+    this.inventoryList$  = this.inventoryService.getItems();
+    this.inventoryList$.then
       (x => {
         console.log("X" ,x);
         this.productPager.totalRecord = x.inventoryDashboardData.length;

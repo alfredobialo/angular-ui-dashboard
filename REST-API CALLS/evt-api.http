@@ -15,4 +15,7 @@ Accept: application/json
 GET https://localhost:6001/api/customers
 Accept: application/json
 
-###
+
+## Inventory Endpoint
+GET https://localhost:6001/api/inventory
+Accep: application/json

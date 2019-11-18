@@ -17,7 +17,7 @@
         <div class="">
           <table class="table">
             <tr>
-              <th>Item Name</th>
+              <th>Item Id</th>
               <th>Description</th>
               <th>Cost / Retail Price</th>
             </tr>
@@ -26,10 +26,10 @@
                 <ssb-spinner [visible]="loading" size="fa-3x">Loading Items</ssb-spinner>
               </td>
             </tr>
-            <tr *ngFor="let item of (inventoryList$ | async).inventoryDashboardData">
-              <td><a (click)="getResource(item.links[0].url)">{{item.name}}</a></td>
-              <td>{{item.description}}</td>
-              <td>{{item.currency.code}} {{item.costPrice | number}} / {{item.currency.code}} {{item.retailPrice | number}}</td>
+            <tr *ngFor="let item of (inventoryList$ | async)">
+              <td><span>{{item.id}}</span></td>
+              <td>{{item.name}}</td>
+              <td>0.0</td>
             </tr>
           </table>
         </div>

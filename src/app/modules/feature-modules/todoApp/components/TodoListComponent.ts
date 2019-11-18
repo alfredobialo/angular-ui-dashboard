@@ -4,19 +4,19 @@ import {ITodoItem} from "../model/ITodoItem";
 @Component({
   selector: 'todo-list',
   template: `
-      <div class="p-4">
+      <div class="p-4 ">
           <div *ngFor="let todo of listOfTodo" class="row mb-2"
                [ngClass]="{'todo-done' : todo.isDone, 'todo-item' : !todo.isDone}">
-              <div class="col-8 p-2">
+              <div class="col-8 p-2 d-flex flex-row justify-content-start align-items-center" >
                   <p class="lead font-weight-bold"
                      (dblclick)="changeTodoItemStatus(todo)"
                   >{{todo.title}}</p>
               </div>
-              <div class="col-sm-4 p-2">
+              <div class="col-sm-4 p-2 d-flex flex-row justify-content-start align-items-center">
                   <input type="checkbox"
                          [checked]="todo.isDone" #checkElem
                          (change)="changeTodoStatus(checkElem,todo)"
-                         class="todo-checkbox">
+                         class="todo-checkbox"> &nbsp; &nbsp;
                   <button class="btn-danger btn btn-sm" (click)="removeTodo(todo)"><span class="fa fa-trash"></span></button>
               </div>
 
@@ -37,12 +37,14 @@ import {ITodoItem} from "../model/ITodoItem";
 
       .todo-item {
           color: #26aff6;
+          cursor: pointer;
 
       }
     input[type=checkbox].todo-checkbox
     {
-        padding : 0.99rem;
+        padding : 1.99rem;
         border : solid 1px #555555;
+        outline: none;
         
     }
   `]
