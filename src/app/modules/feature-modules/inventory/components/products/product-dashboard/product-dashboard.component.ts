@@ -19,8 +19,8 @@ export class ProductDashboardComponent implements OnInit {
   ngOnInit() {
     // get product data
     console.log(this.activeRoute.data);
-    this.inventoryList$  = this.inventoryService.getItems();
-    this.inventoryList$.then
+    this.inventoryList$  = this.activeRoute.data;
+    this.inventoryList$.subscribe
       (x => {
         console.log("X" ,x);
         this.productPager.totalRecord = x.inventoryDashboardData.length;
