@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ITodoItem} from "../model/ITodoItem";
-
+import {ITodoItem, OnBeforeTodoRemovedEventArg} from "../model/ITodoItem";
+import {TodoService} from "../services/TodoService";
+import {snakeCase} from "lodash";
 @Component({
   selector: 'todo-app-container',
   template: `
@@ -13,8 +14,8 @@ import {ITodoItem} from "../model/ITodoItem";
                   <add-todo (onTodoAdded)="addToTodoList($event)"></add-todo>
               </div>
               <div class="col-sm-7 col-12">
-                    <todo-list (onTodoDone)="todoDone($event)" 
-                               (onTodoRemoved)="todoRemoved($event)"
+                    <todo-list (onTodoDone)="todoDone($event)"
+                               (beforeTodoRemoved)="todoBeforeRemoved($event)"
                                [todos]="listOfTodos"></todo-list>
               </div>
           </div>
@@ -24,20 +25,37 @@ import {ITodoItem} from "../model/ITodoItem";
 
 export class TodoAppComponent implements OnInit {
   listOfTodos: ITodoItem[] = [];
-   constructor() {
+   constructor(private todoService : TodoService) {
   }
 
   ngOnInit() {
+     this.todoService.getTodos()
+       .subscribe(x => {
+         this.listOfTodos = x;
+       });
   }
 
   addToTodoList(todo: string) {
-    this.listOfTodos.push(
-      {
-        title : todo,
-        isDone: false
-      });
+     const t = {
+       title : todo,
+       isDone: false,
+       id: snakeCase(todo)
+     };
+    this.todoService.addTodo(t)
+      .subscribe(x => {
+        if(x.success){
+          this.listOfTodos.push(t);
+        }
+        else{
+          alert("Could not add todo on the server!")
+        }
+      })
   }
 
+  todoBeforeRemoved(evtArg : OnBeforeTodoRemovedEventArg) {
+    evtArg.handled = confirm(`Do you want remove todo Item: ${evtArg.todo.title}`);
+    console.log(evtArg, "Removed" );
+  }
 
   todoRemoved(todo  : ITodoItem) {
     console.log(todo, "Removed" );
