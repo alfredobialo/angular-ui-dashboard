@@ -8,6 +8,8 @@ import {inventoryRouteDefinition} from "./inventoryRoutes";
 import {RouterModule} from "@angular/router";
 import {InventoryService} from "./inventoryService";
 import {InventoryDashboardResolver} from "./inventoryDashboardResolver";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {DefaultHttpInterceptor} from "../../DefaultHttpInterceptor";
 
 @NgModule({
   declarations: [CreateProductComponent, ProductListComponent, EditProductDialogComponent, ProductDashboardComponent],

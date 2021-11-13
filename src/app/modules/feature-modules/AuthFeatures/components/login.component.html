@@ -15,7 +15,7 @@
                                        type="text" id="txtUserId{{idSuffix}}" placeholder="Unique User Id"
                                        name="txtUserId{{idSuffix}}" class="form-control control-lg">
         <span class="invalid-feedback" *ngIf="userId['errors']?.required"><i class="fa fa-user"></i>&nbsp; User Id Field is Required</span>
-        <!--<span class="invalid-feedback" *ngIf="userId.errors?.minLength">Minimum length is 6 characters</span>-->
+        <span class="invalid-feedback" *ngIf="userId['errors']?.minLength">Minimum length is 6 characters</span>
       </div>
     </div>
     <div class="row">

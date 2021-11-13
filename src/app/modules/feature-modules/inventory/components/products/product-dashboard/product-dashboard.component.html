@@ -13,13 +13,15 @@
     </div>
     <div class="col-sm-7">
       <div class="p-3">
-        <p class="lead">Product List</p>
+        <p class="lead">Product List &nbsp; &nbsp;
+          <button class="btn btn-primary btn-lg" [routerLink]="['/inventory/add-product']">Add Product</button></p>
         <div class="">
           <table class="table">
             <tr>
               <th>Item Id</th>
               <th>Description</th>
-              <th>Cost / Retail Price</th>
+              <th>Retail Price</th>
+              <th>Cost Price</th>
             </tr>
             <tr [hidden]="!loading">
               <td colspan="3" class="text-center">
@@ -29,7 +31,8 @@
             <tr *ngFor="let item of (inventoryList$ | async).inventoryDashboardData">
               <td><span>{{item.id}}</span></td>
               <td>{{item.name}}</td>
-              <td>0.0</td>
+              <td>{{item.sellingPrice | currency}}</td>
+              <td>{{item.costPrice | currency}}</td>
             </tr>
           </table>
         </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit,HostBinding, AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'ssb-spinner',
@@ -8,7 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
   <ng-content *ngIf="visible"></ng-content>`
 })
 
-export class SpinnerComponent implements OnInit {
+export class SpinnerComponent implements OnInit, AfterViewInit {
+  @HostBinding("style.display") display;
   @Input() visible: boolean  = false;
   @Input() size : string  = null;
 
@@ -16,5 +17,15 @@ export class SpinnerComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {/*
+    if(!this.visible){
+      console.log(this.display);
+      this.display = "none";
+    }
+    else {
+      this.display = "block";
+    }*/
   }
 }

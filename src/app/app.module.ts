@@ -5,6 +5,12 @@ import {AppComponent} from "./app.component";
 import {AspnetModule} from "./modules/custom-ui-module/CustomUiModules";
 import {BaseRouteModule} from "./modules/routes/BaseRouteModule";
 
+import {Store, StoreModule} from "@ngrx/store";
+/*
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {DefaultHttpInterceptor} from "./modules/DefaultHttpInterceptor";
+*/
+
 
 @NgModule({
   declarations: [
@@ -14,9 +20,12 @@ import {BaseRouteModule} from "./modules/routes/BaseRouteModule";
 
     BrowserModule,
     BrowserAnimationsModule,
-    AspnetModule, BaseRouteModule
+    AspnetModule, BaseRouteModule,
+    StoreModule.forRoot( {})
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent],
   entryComponents : []
 })

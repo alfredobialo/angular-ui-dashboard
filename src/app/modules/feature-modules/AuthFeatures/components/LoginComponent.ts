@@ -59,11 +59,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.userId.valueChanges
-      /*.pipe(debounceTime(600),
-
-        //filter(x => x.toLowerCase() === "a")
-        )*/
-      .subscribe( x => {
+     .subscribe( x => {
         console.log(x);
        /// console.log("value Changes called!")
       });
