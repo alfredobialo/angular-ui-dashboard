@@ -1,11 +1,11 @@
 import {Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
-import {ITodoItem} from "../model/ITodoItem";
+import {ITodoItem, OnBeforeTodoRemovedEventArg} from "../model/ITodoItem";
 
 @Component({
   selector: 'todo-list',
   template: `
       <div class="p-4 ">
-          <div *ngFor="let todo of listOfTodo" class="row mb-2"
+          <div *ngFor="let todo of listOfTodo" class="row mb-2" [class.font-italic]="todo.isDone"
                [ngClass]="{'todo-done' : todo.isDone, 'todo-item' : !todo.isDone}">
               <div class="col-8 p-2 d-flex flex-row justify-content-start align-items-center" >
                   <p class="lead font-weight-bold"
@@ -17,7 +17,7 @@ import {ITodoItem} from "../model/ITodoItem";
                          [checked]="todo.isDone" #checkElem
                          (change)="changeTodoStatus(checkElem,todo)"
                          class="todo-checkbox"> &nbsp; &nbsp;
-                  <button class="btn-danger btn btn-sm" (click)="removeTodo(todo)"><span class="fa fa-trash"></span></button>
+                  <button class="btn-danger btn btn-sm" (click)="beforeRemoveTodoHandler(todo,false)"><span class="fa fa-trash"></span></button>
               </div>
 
           </div>
@@ -45,7 +45,7 @@ import {ITodoItem} from "../model/ITodoItem";
         padding : 1.99rem;
         border : solid 1px #555555;
         outline: none;
-        
+
     }
   `]
 })
@@ -55,6 +55,7 @@ export class TodoListComponent implements OnInit {
   @Input("todos") listOfTodo: ITodoItem[] = [];
 
   @Output() onTodoRemoved : EventEmitter<ITodoItem> =  new EventEmitter<ITodoItem>();
+  @Output() beforeTodoRemoved : EventEmitter<OnBeforeTodoRemovedEventArg> =  new EventEmitter<OnBeforeTodoRemovedEventArg>();
   @Output() onTodoDone : EventEmitter<ITodoItem> =  new EventEmitter<ITodoItem>();
   constructor() {
   }
@@ -69,7 +70,18 @@ export class TodoListComponent implements OnInit {
     todo.isDone  = !todo.isDone;
   }
 
+  beforeRemoveTodoHandler(todo : ITodoItem, handled : boolean){
+    this.beforeTodoRemoved.emit( {
+      todo ,
+      handled
+    });
+
+    if(!handled){
+      this.removeTodo(todo);
+    }
+  }
   removeTodo(todo: ITodoItem) {
+
       const index  = this.listOfTodo.indexOf(todo);
       if(index > -1)
       {
