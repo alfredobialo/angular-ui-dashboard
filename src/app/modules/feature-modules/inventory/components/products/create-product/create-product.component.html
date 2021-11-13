@@ -1,3 +1,31 @@
-<p>
-  create-product works!
+<p class="lead">
+  Form Array Example
 </p>
+<form [formGroup]="myform">
+  <div formArrayName="itemNames" class="mb-5" *ngFor="let c of getFormArray.controls; let i = index;">
+    <div [formGroupName]="i" class="bg-light shadow-sm">
+      <div class="row">
+        <div class="col-2">
+          <label for="{{'name' + i+1}}">Item Name {{i + 1}}</label></div>
+        <div class="col-sm-3">
+          <input formControlName="name" id="{{'name' + i+1}}" type="text" class="form-control"></div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label for="{{'description' + i+1}}">Item Description {{i + 1}}</label>
+        </div>
+        <div class="col-sm-3">
+          <input formControlName="description" id="{{'description' + i+1}}" type="text" class="form-control"></div>
+      </div>
+
+    </div>
+
+  </div>
+  <button (click)="addItemControl()" class="btn-primary btn">Add Another</button>
+
+  <div>
+    <code>
+      {{myform.value | json}}
+    </code>
+  </div>
+</form>

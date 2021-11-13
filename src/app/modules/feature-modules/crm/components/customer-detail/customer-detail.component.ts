@@ -9,10 +9,22 @@ import {CustomerService} from "../../services/customer.service";
     <ng-content></ng-content>
     <div class="p-5">
       <h1>Customer Details</h1>
-      <p class="p-5 lead " style="font-family: 'Lucida Console'">
+      <pre class="p-5 lead " style="font-family: 'Lucida Console'">
         {{data | json}}
-      </p>
+      </pre>
     </div>
+    <div class="mt-2 p-3">
+      <div class="row">
+        <div class="col-12 col-sm-3">
+          <p class="lead">Hello Sam</p>
+
+        </div>
+        <div class="col-12 col-sm-9">
+        <p class="lead text-primary">Change your browser viewport size</p>
+      </div>
+      </div>
+    </div>
+
   `,
   styleUrls: ['./customer-detail.component.css']
 })
