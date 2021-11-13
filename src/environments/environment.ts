@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiEndpoint : "https://localhost:6001/api",
+  apiEndpoint : "https://localhost:16001/api",
   identityProvider : {
     authority : "https://localhost:8500",
     clientId : "learn-dotnet-core"
