@@ -20,4 +20,12 @@ export class TodoService extends BaseHttpService {
     // add a todo to list of Todos on the server
     return this.http.post(this.baseUrl,todoItem);
   }
+  markTodoAsDone(todoItem : ITodoItem) : Observable<any>{
+    // add a todo to list of Todos on the server
+    return this.http.put(this.baseUrl,todoItem);
+  }
+  removeTodo(todoItem : ITodoItem) : Observable<any>{
+    // add a todo to list of Todos on the server
+    return this.http.delete(`${this.baseUrl}/${todoItem.id}`);
+  }
 }

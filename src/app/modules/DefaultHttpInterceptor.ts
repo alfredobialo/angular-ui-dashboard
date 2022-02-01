@@ -26,7 +26,7 @@ export  class DefaultHttpInterceptor implements HttpInterceptor
 
              console.log("Response FROM Interceptor : " , response);
           }
-          console.log(event);
+          //console.log(event);
         })
 
       );

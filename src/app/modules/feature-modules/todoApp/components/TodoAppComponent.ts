@@ -16,6 +16,7 @@ import {snakeCase} from "lodash";
               <div class="col-sm-7 col-12">
                     <todo-list (onTodoDone)="todoDone($event)"
                                (beforeTodoRemoved)="todoBeforeRemoved($event)"
+                               (onTodoRemoved)="todoRemoved($event)"
                                [todos]="listOfTodos"></todo-list>
               </div>
           </div>
@@ -58,10 +59,22 @@ export class TodoAppComponent implements OnInit {
   }
 
   todoRemoved(todo  : ITodoItem) {
-    console.log(todo, "Removed" );
+    console.log(todo, "Removed todo at the backend" );
+    this.todoService.removeTodo(todo)
+      .subscribe(x => {
+        if(!x.success) {
+          alert("Could not remove Todo at the backend")
+        }
+      });
   }
 
   todoDone(todo : ITodoItem) {
     console.log(todo, "Done" );
+    this.todoService.markTodoAsDone(todo)
+      .subscribe(x => {
+        if(!x.success) {
+          alert("Could not update todo at the backend")
+        }
+      });
   }
 }

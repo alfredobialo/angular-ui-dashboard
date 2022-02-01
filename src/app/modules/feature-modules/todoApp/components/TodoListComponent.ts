@@ -17,7 +17,7 @@ import {ITodoItem, OnBeforeTodoRemovedEventArg} from "../model/ITodoItem";
                          [checked]="todo.isDone" #checkElem
                          (change)="changeTodoStatus(checkElem,todo)"
                          class="todo-checkbox"> &nbsp; &nbsp;
-                  <button class="btn-danger btn btn-sm" (click)="beforeRemoveTodoHandler(todo,false)"><span class="fa fa-trash"></span></button>
+                  <button class="btn-danger btn btn-sm" (click)="beforeRemoveTodoHandler(todo,true)"><span class="fa fa-trash"></span></button>
               </div>
 
           </div>
@@ -64,10 +64,12 @@ export class TodoListComponent implements OnInit {
   }
   changeTodoStatus(elem: HTMLInputElement,todo: any) {
     todo.isDone  = elem.checked;
+    this.onTodoDone.emit(todo);
   }
 
   changeTodoItemStatus(todo: ITodoItem) {
     todo.isDone  = !todo.isDone;
+    this.onTodoDone.emit(todo);
   }
 
   beforeRemoveTodoHandler(todo : ITodoItem, handled : boolean){
@@ -76,7 +78,7 @@ export class TodoListComponent implements OnInit {
       handled
     });
 
-    if(!handled){
+    if(handled){
       this.removeTodo(todo);
     }
   }
