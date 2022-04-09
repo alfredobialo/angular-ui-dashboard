@@ -46,7 +46,7 @@
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "lodash-decorators": "^6.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ngx-bootstrap": "^5.1.2",
     "oidc-client": "^1.9.1",
     "primeicons": "^1.0.0",
